@@ -8,7 +8,7 @@
 Ext.define('MyDesktop.App', {
     extend: 'Ext.ux.desktop.App',               // 繼承自桌面 App Class
 
-    requires: [                                 // require
+    requires: [                                 // require 為動態加載, 當創建這個累的時候就加載這些類別 (案需加載), 也可以單一加載，如 Ext.require('Product', callbackFunction );
         'Ext.window.MessageBox',
 
         'Ext.ux.desktop.ShortcutModel',
