@@ -4,39 +4,40 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <title>ExtTop - Desktop Sample App</title>
 
-    <!--Include ExtJS Lib-->
-    <script src="http://cdn.sencha.com/ext/gpl/4.2.1/ext-all.js"></script>
-    <link rel="stylesheet" href="http://cdn.sencha.com/ext/gpl/4.2.1/resources/ext-theme-gray/ext-theme-gray-all.css">
+	<!--Include ExtJS Lib-->
+	<script src="http://cdn.sencha.com/ext/gpl/4.2.1/ext-all.js"></script>
+	<link rel="stylesheet" href="http://cdn.sencha.com/ext/gpl/4.2.1/resources/ext-theme-gray/ext-theme-gray-all.css">
 
-    <link rel="stylesheet" type="text/css" href="css/desktop.css" />
+	<link rel="stylesheet" type="text/css" href="css/desktop.css" />
 
-    <!-- GC -->
+	<!-- GC -->
 
-    <!-- <x-compile> -->
-    <!-- <x-bootstrap> -->
-    <!--script type="text/javascript" src="../../examples/shared/include-ext.js"></script-->
-    <script type="text/javascript" src="options-toolbar.js"></script><!--佈景主題選取-->
-    <!-- </x-bootstrap> -->
-    <script type="text/javascript">
-        Ext.Loader.setPath({
-            'Ext.ux.desktop': 'js',
-            MyDesktop: ''
-        });
+	<!-- <x-compile> -->
+	<!-- <x-bootstrap> -->
+	<!--script type="text/javascript" src="../../examples/shared/include-ext.js"></script-->
+	<!--script type="text/javascript" src="options-toolbar.js"></script--><!--佈景主題選取-->
+	<!-- </x-bootstrap> -->
+	<script type="text/javascript">
+		// setPath 的一切小技巧
+		Ext.Loader.setPath({
+			'Ext.ux.desktop': 'js',			// [字串:字串]：單純的文字替換, 就是後面的 Ext.require 內的文字替換
+			MyDesktop: ''					// [變量:字串]：代表建立一個 MyDesktop 的路徑變量指向 '' 代表當前目錄, 可以在後面的 Ext.require 內使用
+		});
 
-        Ext.require('MyDesktop.App');
+		Ext.require('MyDesktop.App');		// 使用先前定義的路徑變量
+		// Ext.require('App');				// 當然你也可以維持這樣寫
 
-        var myDesktopApp;
-        Ext.onReady(function () {
-            myDesktopApp = new MyDesktop.App();
-        });
-    </script>
-    <!-- </x-compile> -->
+		var myDesktopApp;
+		Ext.onReady(function () {
+			myDesktopApp = new MyDesktop.App();
+		});
+	</script>
+	<!-- </x-compile> -->
 </head>
 
 <body>
 
-    <a href="http://www.sencha.com" target="_blank" alt="Powered by Ext JS"
-       id="poweredby"><div></div></a>
+	<a href="http://www.sencha.com" target="_blank" alt="Powered by Ext JS" id="poweredby"><div></div></a>
 
 </body>
 </html>
