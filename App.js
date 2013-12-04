@@ -6,7 +6,7 @@
  */
 
 Ext.define('MyDesktop.App', {
-    extend: 'Ext.ux.desktop.App',
+    extend: 'Ext.ux.desktop.App',               // 繼承自桌面 App Class
 
     requires: [
         'Ext.window.MessageBox',
@@ -64,7 +64,9 @@ Ext.define('MyDesktop.App', {
                     { name: 'Grid Window', iconCls: 'grid-shortcut', module: 'grid-win' },
                     { name: 'Accordion Window', iconCls: 'accordion-shortcut', module: 'acc-win' },
                     { name: 'Notepad', iconCls: 'notepad-shortcut', module: 'notepad' },
-                    { name: 'System Status', iconCls: 'cpu-shortcut', module: 'systemstatus'}
+                    { name: 'System Status', iconCls: 'cpu-shortcut', module: 'systemstatus'},
+                    // 似乎可以自由增加 App 到桌面上
+                    { name: '我的App', iconCls: 'cpu-shortcut'}
                 ]
             }),
 
