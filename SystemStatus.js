@@ -13,7 +13,7 @@ Ext.define('MyDesktop.SystemStatus', {
         'Ext.data.JsonStore'
     ],
 
-    id: 'systemstatus',
+    id: 'systemstatus',         // Component ID 因該是調用在 App.js 內的 module 屬性內
 
     refreshRate: 500,
 

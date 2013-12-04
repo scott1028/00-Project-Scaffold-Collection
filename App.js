@@ -66,7 +66,7 @@ Ext.define('MyDesktop.App', {
                     { name: 'Grid Window', iconCls: 'grid-shortcut', module: 'grid-win' },
                     { name: 'Accordion Window', iconCls: 'accordion-shortcut', module: 'acc-win' },
                     { name: 'Notepad', iconCls: 'notepad-shortcut', module: 'notepad' },
-                    { name: 'System Status', iconCls: 'cpu-shortcut', module: 'systemstatus'},
+                    { name: 'System Status', iconCls: 'cpu-shortcut', module: 'systemstatus'},          // Module 感覺上是 Component ID
                     // 似乎可以自由增加 App 到桌面上
                     { name: '我的App', iconCls: 'cpu-shortcut'}
                 ]
