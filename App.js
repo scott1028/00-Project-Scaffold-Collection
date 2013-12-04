@@ -8,7 +8,7 @@
 Ext.define('MyDesktop.App', {
     extend: 'Ext.ux.desktop.App',               // 繼承自桌面 App Class
 
-    requires: [
+    requires: [                                 // require
         'Ext.window.MessageBox',
 
         'Ext.ux.desktop.ShortcutModel',
@@ -33,6 +33,8 @@ Ext.define('MyDesktop.App', {
 
         // now ready...
     },
+
+// 以下直接註解，就只剩下桌面了！
 
     getModules : function(){
         return [
