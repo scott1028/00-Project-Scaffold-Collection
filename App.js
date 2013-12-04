@@ -53,6 +53,7 @@ Ext.define('MyDesktop.App', {
     getDesktopConfig: function () {
         var me = this, ret = me.callParent();
 
+        // 額外增加一些新屬性進去
         return Ext.apply(ret, {
             //cls: 'ux-desktop-black',
 
