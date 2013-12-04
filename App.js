@@ -5,6 +5,7 @@
  * http://www.sencha.com/license
  */
 
+// 定義一個 MyDesktop.App 的 Class, 並詳細的描述他的內容、動態加載等等
 Ext.define('MyDesktop.App', {
     extend: 'Ext.ux.desktop.App',               // 繼承自桌面 App Class
 
