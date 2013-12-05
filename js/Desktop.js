@@ -120,7 +120,7 @@ Ext.define('Ext.ux.desktop.Desktop', {
     //------------------------------------------------------
     // Overrideable configuration creation methods
 
-    // 建立桌面
+    // 建立桌面, 利用 Dataview + XTemplate 達成
     createDataView: function () {
         var me = this;
         return {
