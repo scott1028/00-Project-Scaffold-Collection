@@ -61,7 +61,9 @@ Ext.define('Ext.ux.desktop.App', {
             me.initModules(me.modules);
         }
 
+        // 這邊會連帶調用一些自訂的方法
         desktopCfg = me.getDesktopConfig();
+
         me.desktop = new Ext.ux.desktop.Desktop(desktopCfg);
 
         // 簡單來說就是宣告一個 viewport, 這部分比較常用 xtype 的方式寫
@@ -88,6 +90,7 @@ Ext.define('Ext.ux.desktop.App', {
             taskbarConfig: me.getTaskbarConfig()
         };
 
+        // 會將 cfg 加上並被覆蓋從 me.desktopConfig 的屬性最後返回, 第二個參數為提取的屬性, 可以為 undefined 就不會有任何作用而已
         Ext.apply(cfg, me.desktopConfig);
         return cfg;
     },
