@@ -99,6 +99,7 @@ Ext.define('Ext.ux.desktop.Desktop', {
         me.callParent();
 
         me.shortcutsView = me.items.getAt(1);
+        // 桌面上的 itemclick 調用 me.onShortcutItemClick 並且替換 this 為 me( 就是 Desktop App.js )
         me.shortcutsView.on('itemclick', me.onShortcutItemClick, me);
 
         var wallpaper = me.wallpaper;
