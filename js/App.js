@@ -170,7 +170,9 @@ Ext.define('Ext.ux.desktop.App', {
         return this.desktop;
     },
 
+    // 當還沒讀取完成就觸發手動觸發尚未完成的 Event 給 this, this 監聽, this 觸發( 自己傳球給自己.... )
     onUnload : function(e) {
+        // this.fireEvent 是 mixin 從 Ext.util.Observable 得來的方法
         if (this.fireEvent('beforeunload', this) === false) {
             e.stopEvent();
         }
