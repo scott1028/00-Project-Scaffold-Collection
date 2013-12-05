@@ -120,6 +120,7 @@ Ext.define('Ext.ux.desktop.Desktop', {
     //------------------------------------------------------
     // Overrideable configuration creation methods
 
+    // 建立桌面
     createDataView: function () {
         var me = this;
         return {
@@ -132,7 +133,7 @@ Ext.define('Ext.ux.desktop.Desktop', {
                 position: 'absolute'
             },
             x: 0, y: 0,
-            tpl: new Ext.XTemplate(me.shortcutTpl)
+            tpl: new Ext.XTemplate(me.shortcutTpl)            // 使用 dataview 加上 XTemplate 模板達到桌面效果的外觀
         };
     },
 
