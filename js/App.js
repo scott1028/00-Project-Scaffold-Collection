@@ -13,13 +13,12 @@ Ext.define('Ext.ux.desktop.App', {
     },
 
     requires: [
-        'Ext.container.Viewport',
-
+        'Ext.container.Viewport',            // 不這樣寫, 你就要寫很巢狀的 Ext.require('A',function(){ Ext.require('B',function(){ .... }) }); 不易閱讀！
         'Ext.ux.desktop.Desktop'
     ],
 
     isReady: false,
-    modules: null,
+    modules: null,                           // 在 init() 內將被填寫為此 App 加載的各種 Sub App, Notepad....等等
     useQuickTips: true,
 
     // ExtJS 原生定義的 constructor 涵式(你需這樣命名) - 建構子
@@ -134,6 +133,8 @@ Ext.define('Ext.ux.desktop.App', {
      * This method returns the configuration object for the TaskBar. A derived class
      * can override this method, call the base version to build the config and then
      * modify the returned object before returning it.
+       衍生類可以複寫這些方法。
+       class 可以繼承自其它的 class 的所有內容，包括 data members 和 member functions，這樣的 class 稱為 derived class。
      */
     getTaskbarConfig: function () {
         var me = this, cfg = {
