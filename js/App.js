@@ -59,11 +59,13 @@ Ext.define('Ext.ux.desktop.App', {
         desktopCfg = me.getDesktopConfig();
         me.desktop = new Ext.ux.desktop.Desktop(desktopCfg);
 
+        // 簡單來說就是宣告一個 viewport, 這部分比較常用 xtype 的方式寫
         me.viewport = new Ext.container.Viewport({
             layout: 'fit',
             items: [ me.desktop ]
         });
 
+        // 事件管理
         Ext.EventManager.on(window, 'beforeunload', me.onUnload, me);
 
         me.isReady = true;
