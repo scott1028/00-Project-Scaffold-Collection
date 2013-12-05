@@ -190,6 +190,7 @@ Ext.define('Ext.ux.desktop.Desktop', {
         });
     },
 
+    // 當點擊桌面 ICON 的時候調用 Desktop App.js 內定義的 getModule 方法啟動應用程式
     onShortcutItemClick: function (dataView, record) {
         var me = this, module = me.app.getModule(record.data.module),
             win = module && module.createWindow();

@@ -134,12 +134,13 @@ Ext.define('Ext.ux.desktop.App', {
         });
     },
 
-    // 看起來 modules 可以用 id 或是 appType 取名
+    // 點擊應用程式的時候觸發
     getModule : function(name) {
     	var ms = this.modules;
         for (var i = 0, len = ms.length; i < len; i++) {
             var m = ms[i];
             if (m.id == name || m.appType == name) {
+                // debugger;
                 return m;
             }
         }
