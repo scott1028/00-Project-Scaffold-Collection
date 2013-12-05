@@ -44,6 +44,7 @@ Ext.define('Ext.ux.desktop.App', {
         }
     },
 
+    // 這是自訂的 function , 並不是 ExtJS 內定的所以要自己從 Constructor 呼叫
     init: function() {
         var me = this, desktopCfg;
 
