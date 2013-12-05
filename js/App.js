@@ -30,6 +30,7 @@ Ext.define('Ext.ux.desktop.App', {
         me.mixins.observable.constructor.call(this, config);
 
         if (Ext.isReady) {
+            // 相當於 setTimeout
             Ext.Function.defer(me.init, 10, me);
         } else {
             Ext.onReady(me.init, me);
@@ -128,10 +129,12 @@ Ext.define('Ext.ux.desktop.App', {
     initModules : function(modules) {
         var me = this;
         Ext.each(modules, function (module) {
+            // 為每一個 module增加一個 app 的屬性，其內容帶 me ( 指這個桌面 )
             module.app = me;
         });
     },
 
+    // 看起來 modules 可以用 id 或是 appType 取名
     getModule : function(name) {
     	var ms = this.modules;
         for (var i = 0, len = ms.length; i < len; i++) {
