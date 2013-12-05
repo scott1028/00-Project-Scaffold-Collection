@@ -66,7 +66,7 @@ Ext.define('Ext.ux.desktop.App', {
             items: [ me.desktop ]
         });
 
-        // 事件管理
+        // 事件監聽設定, 這一行寫法相當於 window.addEventListener 但是 callback 涵式 this 被換成此 app (即 Desktop App 的 Instance)
         Ext.EventManager.on(window, 'beforeunload', me.onUnload, me);
 
         me.isReady = true;
