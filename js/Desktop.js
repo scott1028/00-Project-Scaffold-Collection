@@ -59,8 +59,10 @@ Ext.define('Ext.ux.desktop.Desktop', {
      * This XTemplate is used to render items in the DataView. If this is changed, the
      * {@link shortcutItemSelect} will probably also need to changed.
      */
+    // 桌面圖示排版的部分
     shortcutTpl: [
         '<tpl for=".">',
+            '<!--這部分看起來為控制桌面圖示的排版-->',
             '<div class="ux-desktop-shortcut" id="{name}-shortcut">',
                 '<div class="ux-desktop-shortcut-icon {iconCls}">',
                     '<img src="',Ext.BLANK_IMAGE_URL,'" title="{name}">',
