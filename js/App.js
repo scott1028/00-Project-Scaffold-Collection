@@ -167,6 +167,7 @@ Ext.define('Ext.ux.desktop.App', {
         return null;
     },
 
+    // ExtJS 內建的方法(Fired when Dom and Ext Classes is Loaded!), 似乎根本不會被調用 Test By Scott
     onReady : function(fn, scope) {
         if (this.isReady) {
             fn.call(scope, this);
@@ -177,6 +178,9 @@ Ext.define('Ext.ux.desktop.App', {
                 single: true
             });
         }
+
+        // 測試這個 Function 的執行時機
+        debugger;
     },
 
     getDesktop : function() {
