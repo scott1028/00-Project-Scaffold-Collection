@@ -29,8 +29,8 @@ Ext.define('Ext.ux.desktop.App', {
         // debugger;
 
         var me = this;
-        me.addEvents(                       // 讓 app 觀察自訂事件 ready, beforeunload
-            'ready',
+        me.addEvents(                       // 讓 app 觀察自訂事件 ready、beforeunload, 從 Ext.util.Observable 獲得的方法
+            'ready',                        // 雖然可以從 mixins 獲得其成員、方法，但是最好還是要呼叫建構子，以免發生 Bug
             'beforeunload'
         );
 
