@@ -6,8 +6,10 @@
  */
 
 Ext.define('Ext.ux.desktop.App', {
-    mixins: {
+    mixins: {                                // (*) mixins 是 ExtJS Class 的固有成員
         observable: 'Ext.util.Observable'    // 讓這個 app(Desktop) 成為事件觀察者可以監看其從屬成員(such as Desktop icon app)的事件
+                                             // 當然你也可以這樣寫 mixins: ['Ext.util.Observable']
+                                             // observable 名稱可以換掉但是底下建構子也要一併修改並呼叫
     },
 
     requires: [
@@ -33,6 +35,8 @@ Ext.define('Ext.ux.desktop.App', {
         );
 
         // 以 this(app) 的角度呼叫 me.mixins.observable 的建構涵式 constructor , 並帶入參數 config
+        // 因為 mixin 的時候取名為 observable
+        // ExtJS 似乎不會自行幫你呼叫 Mixins 的建構子
         me.mixins.observable.constructor.call(this, config);
 
         if (Ext.isReady) {
