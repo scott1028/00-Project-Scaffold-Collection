@@ -24,21 +24,23 @@ Ext.define('Ext.ux.desktop.App', {
 
     // ExtJS 原生定義的 constructor 涵式(你需這樣命名) - 建構子
     constructor: function (config) {
-
-        // 觀察 app 啟動後有載入那些資源
-        // debugger;
-
         var me = this;
-        me.addEvents(                       // 讓 app 觀察自訂事件 ready、beforeunload, 從 Ext.util.Observable 獲得的方法
-            'ready',                        // 雖然可以從 mixins 獲得其成員、方法，但是最好還是要呼叫建構子，以免發生 Bug
-            'beforeunload'
-        );
-
+        
         // 以 this(app) 的角度呼叫 me.mixins.observable 的建構涵式 constructor , 並帶入參數 config
         // 因為 mixin 的時候取名為 observable
         // ExtJS 似乎不會自行幫你呼叫 Mixins 的建構子
         me.mixins.observable.constructor.call(this, config);
 
+        // 觀察 app 啟動後有載入那些資源
+        // debugger;
+
+        // 讓 app 觀察自訂事件 ready、beforeunload, 從 Ext.util.Observable 獲得的方法
+        me.addEvents(                       
+            'ready',                        // 雖然可以從 mixins 獲得其成員、方法，但是最好還是要呼叫建構子，以免發生 Bug
+            'beforeunload'
+        );
+
+        // 這很基本就不說了...
         if (Ext.isReady) {
             // 相當於 setTimeout
             Ext.Function.defer(me.init, 10, me);
