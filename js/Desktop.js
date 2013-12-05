@@ -98,6 +98,7 @@ Ext.define('Ext.ux.desktop.Desktop', {          // 在 desktop.html 內 'Ext.ux.
             me.createDataView()
         ];
 
+        // ExtJS 有實作 super same name method invoke!!
         me.callParent();
 
         me.shortcutsView = me.items.getAt(1);
