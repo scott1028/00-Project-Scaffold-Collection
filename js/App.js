@@ -14,7 +14,8 @@ Ext.define('Ext.ux.desktop.App', {
 
     requires: [
         'Ext.container.Viewport',            // 不這樣寫, 你就要寫很巢狀的 Ext.require('A',function(){ Ext.require('B',function(){ .... }) }); 不易閱讀！
-        'Ext.ux.desktop.Desktop'
+        'Ext.ux.desktop.Desktop'             // 之後再 constructor->init 內將調用, 這個 Class 定義在 Desktop.js 內。
+                                             // 在 desktop.html 內 'Ext.ux.desktop': 'js' 有 path 參考轉向。
     ],
 
     isReady: false,
@@ -65,6 +66,7 @@ Ext.define('Ext.ux.desktop.App', {
         // 這邊會連帶調用一些自訂的方法
         desktopCfg = me.getDesktopConfig();
 
+        // 桌面部件之後會作為其他應用的操作 handle, 先前在 require 內動態載入
         me.desktop = new Ext.ux.desktop.Desktop(desktopCfg);
 
         // 簡單來說就是宣告一個 viewport, 這部分比較常用 xtype 的方式寫
@@ -146,6 +148,7 @@ Ext.define('Ext.ux.desktop.App', {
         return cfg;
     },
 
+    // 將在 App 的 Constructor->init 被調用
     initModules : function(modules) {
         var me = this;
         Ext.each(modules, function (module) {
@@ -183,6 +186,7 @@ Ext.define('Ext.ux.desktop.App', {
         debugger;
     },
 
+    // 簡單來說就是取得桌面部件的 Handle
     getDesktop : function() {
         return this.desktop;
     },

@@ -10,7 +10,7 @@
  * @extends Ext.panel.Panel
  * <p>This class manages the wallpaper, shortcuts and taskbar.</p>
  */
-Ext.define('Ext.ux.desktop.Desktop', {
+Ext.define('Ext.ux.desktop.Desktop', {          // 在 desktop.html 內 'Ext.ux.desktop': 'js' 有 path 參考轉向。
     extend: 'Ext.panel.Panel',
 
     alias: 'widget.desktop',
