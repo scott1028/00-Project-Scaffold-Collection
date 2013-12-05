@@ -95,7 +95,7 @@ Ext.define('Ext.ux.desktop.App', {
         return cfg;
     },
 
-    getModules: Ext.emptyFn,
+    getModules: Ext.emptyFn,        // Ext.emptyFn 為 ExtJS 內建的 空Function 指向物, 你也可以直接寫 function(){}。
 
     /**
      * This method returns the configuration object for the Start Button. A derived
