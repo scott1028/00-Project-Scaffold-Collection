@@ -7,7 +7,7 @@
 
 Ext.define('Ext.ux.desktop.App', {
     mixins: {
-        observable: 'Ext.util.Observable'
+        observable: 'Ext.util.Observable'    // 讓這個 app(Desktop) 成為事件觀察者可以監看其從屬成員(such as Desktop icon app)的事件
     },
 
     requires: [
@@ -20,19 +20,26 @@ Ext.define('Ext.ux.desktop.App', {
     modules: null,
     useQuickTips: true,
 
+    // ExtJS 原生定義的 constructor 涵式(你需這樣命名) - 建構子
     constructor: function (config) {
+
+        // 觀察 app 啟動後有載入那些資源
+        // debugger;
+
         var me = this;
-        me.addEvents(
+        me.addEvents(                       // 讓 app 觀察自訂事件 ready, beforeunload
             'ready',
             'beforeunload'
         );
 
+        // 以 this(app) 的角度呼叫 me.mixins.observable 的建構涵式 constructor , 並帶入參數 config
         me.mixins.observable.constructor.call(this, config);
 
         if (Ext.isReady) {
             // 相當於 setTimeout
             Ext.Function.defer(me.init, 10, me);
         } else {
+            // 如果沒準備好就讓他在準備好的時候調用
             Ext.onReady(me.init, me);
         }
     },
