@@ -5,6 +5,8 @@
  * http://www.sencha.com/license
  */
 
+// 這邊用來裝載 Desktop Class, 然後 Desktop Class , Bottom Status Bar 等等, 然後 Desktop Class 在裝載桌面上的元件。
+
 Ext.define('Ext.ux.desktop.App', {
     mixins: {                                // (*) mixins 是 ExtJS Class 的固有成員
         observable: 'Ext.util.Observable'    // 讓這個 app(Desktop) 成為事件觀察者可以監看其從屬成員(such as Desktop icon app)的事件
@@ -136,7 +138,7 @@ Ext.define('Ext.ux.desktop.App', {
      * can override this method, call the base version to build the config and then
      * modify the returned object before returning it.
        衍生類可以複寫這些方法。
-       class 可以繼承自其它的 class 的所有內容，包括 data members 和 member functions，這樣的 class 稱為 derived class。
+       class 可以繼承自其它的 class 的所有內容，包括 data members 和 functions，這樣的 class 稱為 derived class。
      */
     getTaskbarConfig: function () {
         var me = this, cfg = {
