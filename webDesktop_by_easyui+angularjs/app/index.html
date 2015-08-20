@@ -34,35 +34,39 @@
         }]);
     </script>
 
-    <div class="easyui-layout" style="width:700px;height:350px;" data-options="fit:true">
+    <div class="easyui-layout" style="width:700px;height:350px;" data-options="fit:true" ng-controller="ngAppDemoController">
+        <!-- Viewport -->
+        <div data-options="region:'west',split:true" title="West" style="width:100px;"></div>
+        <div data-options="region:'east',split:true" title="East" style="width:100px;"></div>
         <div data-options="region:'center',iconCls:'icon-ok'">
-        <!-- Main -->
+            <p>Nothing here {{'yet' + '!'}}</p>
+            <div>
+                dialog content. {{version}}!
+            </div>
+        </div>
+        
+        <!-- Component -->
         <div
-             ng-controller="ngAppDemoController"
             class="easyui-dialog"
             style="width:400px;height:200px"
             data-options="title:'My Dialog',iconCls:'icon-ok',onOpen:function(){}">
             dialog content. {{version}}
         </div>
 
-        <table class="easyui-datagrid" title="Basic DataGrid" style="width:700px;height:250px"
-                data-options="singleSelect:true,collapsible:true,url:'tests/datagrid_data.json',method:'get'">
-            <thead>
-                <tr>
-                    <th data-options="field:'itemid',width:80">Item ID</th>
-                    <th data-options="field:'productid',width:100">Product</th>
-                    <th data-options="field:'listprice',width:80,align:'right'">List Price</th>
-                    <th data-options="field:'unitcost',width:80,align:'right'">Unit Cost</th>
-                    <th data-options="field:'attr1',width:250">Attribute</th>
-                    <th data-options="field:'status',width:60,align:'center'">Status</th>
-                </tr>
-            </thead>
-        </table>
-        <div ng-controller="ngAppDemoController">
-            dialog content. {{version}}!
-        </div>
-
-        <p>Nothing here {{'yet' + '!'}}</p>
+        <div id="w" class="easyui-window" title="Basic Window" data-options="iconCls:'icon-save'" style="width:700px;height:400px;">
+            <table class="easyui-datagrid" style="height:auto"
+                    data-options="singleSelect:true,collapsible:true,url:'tests/datagrid_data.json',method:'get',fit:true">
+                <thead>
+                    <tr>
+                        <th data-options="field:'itemid',width:80">Item ID</th>
+                        <th data-options="field:'productid',width:100">Product</th>
+                        <th data-options="field:'listprice',width:80,align:'right'">List Price</th>
+                        <th data-options="field:'unitcost',width:80,align:'right'">Unit Cost</th>
+                        <th data-options="field:'attr1',width:250">Attribute</th>
+                        <th data-options="field:'status',width:60,align:'center'">Status</th>
+                    </tr>
+                </thead>
+            </table>
         </div>
     </div>
 </body>
