@@ -49,7 +49,6 @@ module.exports = function(grunt) {
     //
     var allMiddlewares = function(connect, options) {
         var optBase = (typeof options.base === 'string') ? [options.base] : options.base;
-        console.log(23);
         return [
             rewriteRuleMiddleware,   // rewriteRule support
             staticFileMiddleware,    // staticFile serve
