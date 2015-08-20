@@ -1,14 +1,20 @@
 <div id="w" class="easyui-window" title="Basic Window" data-options="iconCls:'icon-save'" style="width:700px;height:400px;">
     <table class="easyui-datagrid" style="height:auto"
-            data-options="singleSelect:true,collapsible:true,url:'tests/datagrid_data.json',method:'get',fit:true">
+            data-options="
+                singleSelect:true,
+                collapsible:true,
+                url:'https://dev.gslssd.com/api/ssd/faq/?extraColumn=1&suspend=skip&audit_name=Faq+Query&limit=10&offset=0',
+                method:'get',
+                fit:true,
+                loadFilter: gridFilter">
         <thead>
             <tr>
-                <th data-options="field:'itemid',width:80">Item ID</th>
-                <th data-options="field:'productid',width:100">Product</th>
-                <th data-options="field:'listprice',width:80,align:'right'">List Price</th>
-                <th data-options="field:'unitcost',width:80,align:'right'">Unit Cost</th>
-                <th data-options="field:'attr1',width:250">Attribute</th>
-                <th data-options="field:'status',width:60,align:'center'">Status</th>
+                <th data-options="field:'id',width:80,sortable:true">Item ID</th>
+                <th data-options="field:'faq_answer',width:100">Faq Answer</th>
+                <th data-options="field:'faq_e_question',width:80,align:'right'">Faq E Question</th>
+                <th data-options="field:'faq_order',width:80,align:'right'">Faq Order</th>
+                <th data-options="field:'faq_type1',width:250">Faq Type1</th>
+                <th data-options="field:'faq_type2',width:60,align:'center'">Faq Type2</th>
             </tr>
         </thead>
     </table>
@@ -16,5 +22,22 @@
 <script>
     // init, due to angularJS co-work issue.
     $('#w').window();
+    var gridFilter = function(data){
+        
+        //
+        console.log(data);
+
+
+        //
+        var json = {
+            total: data.meta.total_count,
+            rows: data.objects
+        }
+
+        return json
+    };
+
+
+    //
     $('#w .easyui-datagrid').datagrid();
 </script>

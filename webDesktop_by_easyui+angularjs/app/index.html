@@ -7,7 +7,6 @@
     <link rel="stylesheet" type="text/css" href="../bower_components/jquery-easyui/themes/default/easyui.css">
     <link rel="stylesheet" type="text/css" href="../bower_components/jquery-easyui/themes/icon.css">
     <!-- <link rel="stylesheet" type="text/css" href="../bower_components/jquery-easyui/themes/color.css"> -->
-    <link rel="stylesheet" type="text/css" href="../bower_components/jquery-easyui/demo/demo.css">
     <!-- endbower -->
     <!-- bower:js -->
     <script src="../bower_components/jquery/jquery.js"></script>
@@ -25,7 +24,6 @@
         //
         angular.module('ngAppDemo', []).controller('ngAppDemoController', ['$scope', '$interval', function($scope, $interval) {
             $scope.version = 10;
-            console.log(123);
 
             $interval(function(e){
                 $scope.version += 1;
@@ -35,15 +33,18 @@
 
     <!-- Viewport -->
     <div class="easyui-layout" style="width:700px;height:350px;" data-options="fit:true" ng-controller="ngAppDemoController">
-        <div data-options="region:'west',split:true" title="West" style="width:100px;"></div>
-        <div data-options="region:'east',split:true" title="East" style="width:100px;"></div>
+        <div data-options="region:'west',split:true" title="West" style="width:100px;">
+            {{version}}
+        </div>
+        <div data-options="region:'east',split:true" title="East" style="width:100px;">
+            {{version}}
+        </div>
         <div data-options="region:'center'">
             <p>Nothing here {{'yet' + '!'}}</p>
             <div>
                 dialog content. {{version}}!
             </div>
         </div>
-        
     </div>
 
     <!-- Component -->
