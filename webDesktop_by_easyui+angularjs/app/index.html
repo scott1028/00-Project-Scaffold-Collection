@@ -61,23 +61,27 @@
         <div data-options="region:'east',split:true" title="East" style="width:100px;">
             {{version}}
         </div>
-        <div data-options="region:'center', footer: '#center-footer'">
+        <div data-options="region:'center', footer: '#center-footer'" style="display: flex; flex-direction: row;">
 
-            <div style="display: flex; width: 100%;">
-                <div style="flex: 1;">
-                    <p>Nothing here {{'yet' + '!'}}</p>
-                    <div>
-                        dialog content. {{version}}!
-                    </div>
-                </div>
+            <!-- <a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" >My Computer</a> -->
+            <div style="width: 75px; height: 75px; margin: 20px; background-color: lightgrey;" class="easyui-linkbutton" ng-click="ui_window();">
+                My Computer
+            </div>
+
+            <div style="width: 75px; height: 75px; margin: 20px; background-color: lightgrey;" class="easyui-linkbutton" ng-click="ui_window();">
+                My Computer
+            </div>
+
+            <!-- <a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" ng-click="ui_dailog();">My Dailog</a> -->
+
+
+            <div>
                 <div ng-repeat="item in [1, 2, 3, 4, 5]" style="flex: 1;">
                     {{item}}
                 </div>
                 {{ui_window.open}}
+                {{version}}
             </div>
-
-            <a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" ng-click="ui_window();">My Computer</a>
-            <a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" ng-click="ui_dailog();">My Dailog</a>
         </div>
 
 
