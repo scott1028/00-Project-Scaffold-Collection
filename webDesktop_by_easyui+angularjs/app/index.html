@@ -1,25 +1,52 @@
-<!DOCTYPE>
-<html>
+<!doctype html>
+<html lang="en" ng-app="ngAppDemo">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>EasyUI - Desktop Sample App</title>
     <!-- bower:css -->
     <link rel="stylesheet" type="text/css" href="../bower_components/jquery-easyui/themes/default/easyui.css">
     <link rel="stylesheet" type="text/css" href="../bower_components/jquery-easyui/themes/icon.css">
-    <link rel="stylesheet" type="text/css" href="../bower_components/jquery-easyui/themes/color.css">
+    <!-- <link rel="stylesheet" type="text/css" href="../bower_components/jquery-easyui/themes/color.css"> -->
     <link rel="stylesheet" type="text/css" href="../bower_components/jquery-easyui/demo/demo.css">
+    <!-- endbower -->
+    <!-- bower:js -->
+    <script src="../bower_components/jquery/jquery.js"></script>
+    <script src="../bower_components/angularjs/angular.js"></script>
+    <script src="../bower_components/jquery-easyui/jquery.easyui.min.js"></script>
     <!-- endbower -->
 </head>
 <body>
-    <!-- bower:js -->
-    <script src="../bower_components/jquery/jquery.js"></script>
-    <script src="../bower_components/jquery-easyui/jquery.easyui.min.js"></script>
-    <script src="../bower_components/angularjs/angular.js"></script>
-    <!-- endbower -->
 
-	<div class="easyui-dialog" style="width:400px;height:200px"
-    	data-options="title:'My Dialog',iconCls:'icon-ok',onOpen:function(){}">
-        dialog content.
-	</div>
+    <!-- Main -->
+    <script>
+        // fix: Cannot read property 'msie' of undefined
+        $.browser = $.support;
+
+
+        //
+        angular.module('ngAppDemo', []).controller('ngAppDemoController', ['$scope', '$interval', function($scope, $interval) {
+            $scope.version = 10;
+            console.log(123);
+
+            $interval(function(e){
+                $scope.version += 1;
+            }, 1000)
+        }]);
+    </script>
+
+    <!-- Main -->
+    <div
+         ng-controller="ngAppDemoController"
+        class="easyui-dialog"
+        style="width:400px;height:200px"
+        data-options="title:'My Dialog',iconCls:'icon-ok',onOpen:function(){}">
+        dialog content. {{version}}
+    </div>
+
+    <div ng-controller="ngAppDemoController">
+        dialog content. {{version}}!
+    </div>
+
+    <p>Nothing here {{'yet' + '!'}}</p>
 </body>
 </html>
