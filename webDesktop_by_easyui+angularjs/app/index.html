@@ -40,9 +40,17 @@
             {{version}}
         </div>
         <div data-options="region:'center'">
-            <p>Nothing here {{'yet' + '!'}}</p>
-            <div>
-                dialog content. {{version}}!
+
+            <div style="display: flex; width: 100%;">
+                <div style="flex: 1;">
+                    <p>Nothing here {{'yet' + '!'}}</p>
+                    <div>
+                        dialog content. {{version}}!
+                    </div>
+                </div>
+                <div ng-repeat="item in [1, 2, 3, 4, 5]" style="flex: 1;">
+                    {{item}}
+                </div>
             </div>
         </div>
     </div>

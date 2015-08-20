@@ -1,0 +1,20 @@
+{
+  "name": "RequireJS_Study",
+  "version": "0.0.0",
+  "authors": [
+    "scott.lan"
+  ],
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angularjs": "~1.4.4"
+  },
+  "devDependencies": {}
+}
