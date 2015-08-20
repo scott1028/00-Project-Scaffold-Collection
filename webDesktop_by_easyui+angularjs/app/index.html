@@ -32,14 +32,13 @@
 
             //
             $scope.ui_window = function(){
+                $('#w .easyui-datagrid').datagrid();
                 $('#w').window({
                     onOpen: function(){
                         $scope.ui_window.open = true;
-                        // $scope.$apply();
                     },
                     onClose: function(){
                         $scope.ui_window.open = false;  
-                        // $scope.$apply();
                     }
                 }).window('open').show();
             };
@@ -50,6 +49,7 @@
             $scope.ui_dailog = function(){
                 
             };
+            $scope.ui_dailog.open = false;
         }]);
     </script>
 
