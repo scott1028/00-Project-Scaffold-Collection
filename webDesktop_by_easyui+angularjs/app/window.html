@@ -1,9 +1,9 @@
-<div id="w" class="easyui-window" title="Basic Window" data-options="iconCls:'icon-save'" style="width:700px;height:400px;">
+<div id="w" class="easyui-window" title="Basic Window" data-options="iconCls:'icon-save', closed: true" style="width:700px;height:400px;">
     <table class="easyui-datagrid" style="height:auto"
             data-options="
                 singleSelect:true,
                 collapsible:true,
-                url:'https://dev.gslssd.com/api/ssd/faq/?extraColumn=1&suspend=skip&audit_name=Faq+Query&limit=10&offset=0',
+                url:'http://127.0.0.1:8080/api/ssd/faq/?extraColumn=1&suspend=skip&audit_name=Faq+Query&limit=10&offset=0',
                 method:'get',
                 fit:true,
                 loadFilter: gridFilter">
@@ -13,7 +13,7 @@
                 <th data-options="field:'faq_answer',width:100">Faq Answer</th>
                 <th data-options="field:'faq_e_question',width:80,align:'right'">Faq E Question</th>
                 <th data-options="field:'faq_order',width:80,align:'right'">Faq Order</th>
-                <th data-options="field:'faq_type1',width:250">Faq Type1</th>
+                <th data-options="field:'faq_type1',width:60">Faq Type1</th>
                 <th data-options="field:'faq_type2',width:60,align:'center'">Faq Type2</th>
             </tr>
         </thead>

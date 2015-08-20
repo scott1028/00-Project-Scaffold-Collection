@@ -27,7 +27,29 @@
 
             $interval(function(e){
                 $scope.version += 1;
-            }, 1000)
+            }, 1000);
+
+
+            //
+            $scope.ui_window = function(){
+                $('#w').window({
+                    onOpen: function(){
+                        $scope.ui_window.open = true;
+                        // $scope.$apply();
+                    },
+                    onClose: function(){
+                        $scope.ui_window.open = false;  
+                        // $scope.$apply();
+                    }
+                }).window('open').show();
+            };
+            $scope.ui_window.open = false;
+
+
+            //
+            $scope.ui_dailog = function(){
+                
+            };
         }]);
     </script>
 
@@ -51,12 +73,32 @@
                 <div ng-repeat="item in [1, 2, 3, 4, 5]" style="flex: 1;">
                     {{item}}
                 </div>
+                {{ui_window.open}}
             </div>
+
+            <a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" ng-click="ui_window();">My Computer</a>
+            <a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" ng-click="ui_dailog();">My Dailog</a>
+        </div>
+
+
+        <!-- Component -->
+        <div id="center-footer">
+            <a href="javascript:void(0)" id="mb" class="easyui-menubutton" data-options="menu:'#mm',iconCls:'icon-edit'">Start</a>
+            <div id="mm" style="width:150px;">
+                <div data-options="iconCls:'icon-undo'">Undo</div>
+                <div data-options="iconCls:'icon-redo'">Redo</div>
+                <div class="menu-sep"></div>
+                <div>Cut</div>
+                <div>Copy</div>
+                <div>Paste</div>
+                <div class="menu-sep"></div>
+                <div data-options="iconCls:'icon-remove'">Delete</div>
+                <div>Select All</div>
+            </div>
+            <a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" ng-show="ui_window.open">My Computer</a>
         </div>
     </div>
-        <div id="center-footer">
-            test
-        </div>
+
 
     <!-- Component -->
     <div ng-include="'window.html'"></div>
