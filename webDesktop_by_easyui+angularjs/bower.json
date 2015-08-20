@@ -14,8 +14,8 @@
     "tests"
   ],
   "dependencies": {
-    "jquery-easyui": "*",
-    "angularjs": "~1.4.4"
+    "angularjs": "~1.4.4",
+    "jquery.easyui": "*"
   },
   "devDependencies": {}
 }

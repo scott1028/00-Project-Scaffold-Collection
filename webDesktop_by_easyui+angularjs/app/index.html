@@ -4,14 +4,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>EasyUI - Desktop Sample App</title>
     <!-- bower:css -->
-    <link rel="stylesheet" type="text/css" href="../bower_components/jquery-easyui/themes/default/easyui.css">
-    <link rel="stylesheet" type="text/css" href="../bower_components/jquery-easyui/themes/icon.css">
+    <link rel="stylesheet" type="text/css" href="../bower_components/jquery.easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../bower_components/jquery.easyui/themes/icon.css">
     <!-- <link rel="stylesheet" type="text/css" href="../bower_components/jquery-easyui/themes/color.css"> -->
     <!-- endbower -->
     <!-- bower:js -->
-    <script src="../bower_components/jquery/jquery.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
     <script src="../bower_components/angularjs/angular.js"></script>
-    <script src="../bower_components/jquery-easyui/jquery.easyui.min.js"></script>
+    <script src="../bower_components/jquery.easyui/jquery.easyui.min.js"></script>
     <!-- endbower -->
 </head>
 <body>
@@ -39,7 +39,7 @@
         <div data-options="region:'east',split:true" title="East" style="width:100px;">
             {{version}}
         </div>
-        <div data-options="region:'center'">
+        <div data-options="region:'center', footer: '#center-footer'">
 
             <div style="display: flex; width: 100%;">
                 <div style="flex: 1;">
@@ -54,6 +54,9 @@
             </div>
         </div>
     </div>
+        <div id="center-footer">
+            test
+        </div>
 
     <!-- Component -->
     <div ng-include="'window.html'"></div>
