@@ -7,3 +7,5 @@ $ http-server
 ## Reference
 - making certain cells of an ExtJS GridPanel un-editable
 	- http://docs.sencha.com/extjs/4.2.1/#!/api/Ext.grid.plugin.CellEditing-method-isCellEditable
+	- http://docs.sencha.com/extjs/4.2.1/source/CellEditing.html#Ext-grid-plugin-CellEditing-method-isCellEditable
+    - http://docs.sencha.com/extjs/4.2.1/#!/api/Ext.grid.plugin.RowEditing-method-startEdit

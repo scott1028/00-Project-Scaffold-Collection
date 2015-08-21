@@ -11,6 +11,7 @@ Ext.define('MyDesktop.GridWindow', {
     requires: [
         'plugins.myWriter',
         'plugins.myRestProxy',
+        // 'plugins.myRowEditor',
         'Ext.data.ArrayStore',
         'Ext.util.Format',
         'Ext.grid.Panel',
@@ -93,7 +94,22 @@ Ext.define('MyDesktop.GridWindow', {
                                 editor: {
                                     xtype:'textfield',
                                     allowBlank: false
-                                }
+                                },
+                                // getEditor: function(a,b,c,d,e){
+                                //     // if(this){
+                                //         // var record = this.up('grid').getSelectionModel().getSelection()[0];
+                                //         // if(record && record.data.id < 20)
+                                //             // return false;.
+                                //         // return this.callParent(arguments);
+                                //     // }
+                                //     var me = this;
+
+                                //     if (!me.editor) {
+                                //         me.editor = me.initEditor();
+                                //     }
+                                //     return me.editor;
+                                //     // return true;
+                                // },
                             },
                             {
                                 text: "Faq Answer",
@@ -116,7 +132,34 @@ Ext.define('MyDesktop.GridWindow', {
                                     edit: function(e, item, self){
                                         item.record.save();
                                     }
-                                }
+                                },
+                                // startEdit: function(record, columnHeader) {
+
+                                //     // 如果資料ID小於 20 則 不給編輯
+                                //     if(record.data.id <= 20)
+                                //         return false;
+
+
+                                //     //
+                                //     var me = this,
+                                //         editor = me.getEditor(),
+                                //         context;
+
+                                //     if (editor.beforeEdit() !== false) {
+                                //         context = me.callParent(arguments);
+                                //         if (context) {
+                                //             me.context = context;
+
+                                //             // If editing one side of a lockable grid, cancel any edit on the other side.
+                                //             if (me.lockingPartner) {
+                                //                 me.lockingPartner.cancelEdit();
+                                //             }
+                                //             editor.startEdit(context.record, context.column, context);
+                                //             return true;
+                                //         }
+                                //     }
+                                //     return false;
+                                // }
                             }
                         ],
                     }
