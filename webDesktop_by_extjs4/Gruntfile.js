@@ -25,7 +25,6 @@ module.exports = function(grunt) {
     //
     var allMiddlewares = function(connect, options) {
         var optBase = (typeof options.base === 'string') ? [options.base] : options.base;
-        console.log(23);
         return [
             require('connect-modrewrite')(require('./.htaccess.js').rewrite),   // rewriteRule support
             staticFileMiddleware,    // staticFile serve

@@ -43,40 +43,51 @@ Ext.define('MyDesktop.GridWindow', {
                         xtype: 'grid',
                         store: new Ext.data.ArrayStore({
                             fields: [
-                               { name: 'company' },
-                               { name: 'price', type: 'float' },
-                               { name: 'change', type: 'float' },
-                               { name: 'pctChange', type: 'float' }
+                               { name: 'id' },
+                               { name: 'faq_tc_question' },
+                               { name: 'faq_tc_answer' },
+                               // { name: 'price', type: 'float' },
+                               // { name: 'change', type: 'float' },
+                               // { name: 'pctChange', type: 'float' }
                             ],
-                            data: MyDesktop.GridWindow.getDummyData()
+                            autoLoad: true,
+                            proxy: {
+                                type: 'ajax',
+                                url: '/api/ssd/faq/?extraColumn=1&suspend=skip&audit_name=Faq+Query&limit=10&offset=0',
+                                reader: {
+                                    type: 'json',
+                                    root: 'objects'
+                                }
+                            }
+                            // data: MyDesktop.GridWindow.getDummyData()
                         }),
                         columns: [
                             new Ext.grid.RowNumberer(),
                             {
-                                text: "Company",
+                                text: "ID",
+                                width: 70,
+                                sortable: true,
+                                dataIndex: 'id'
+                            },
+                            {
+                                text: "Faq Question",
                                 flex: 1,
                                 sortable: true,
-                                dataIndex: 'company'
+                                // renderer: Ext.util.Format.usMoney,
+                                dataIndex: 'faq_tc_question'
                             },
                             {
-                                text: "Price",
-                                width: 70,
+                                text: "Faq Answer",
+                                flex: 1,
                                 sortable: true,
-                                renderer: Ext.util.Format.usMoney,
-                                dataIndex: 'price'
+                                dataIndex: 'faq_tc_answer'
                             },
-                            {
-                                text: "Change",
-                                width: 70,
-                                sortable: true,
-                                dataIndex: 'change'
-                            },
-                            {
-                                text: "% Change",
-                                width: 70,
-                                sortable: true,
-                                dataIndex: 'pctChange'
-                            }
+                            // {
+                            //     text: "% Change",
+                            //     width: 70,
+                            //     sortable: true,
+                            //     dataIndex: 'pctChange'
+                            // }
                         ]
                     }
                 ],
