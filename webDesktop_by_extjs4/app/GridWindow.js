@@ -19,7 +19,7 @@ Ext.define('MyDesktop.GridWindow', {
 
     init : function(){
         this.launcher = {
-            text: 'Grid Window',
+            text: 'FAQ Window',
             iconCls:'icon-grid'
         };
     },
@@ -30,7 +30,7 @@ Ext.define('MyDesktop.GridWindow', {
         if(!win){
             win = desktop.createWindow({
                 id: 'grid-win',
-                title:'Grid Window',
+                title:'FAQ Window',
                 width:740,
                 height:480,
                 iconCls: 'icon-grid',
