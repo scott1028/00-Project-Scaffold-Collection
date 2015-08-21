@@ -137,11 +137,34 @@ Ext.define('MyDesktop.GridWindow', {
                                     beforeedit: function(editor, context, eOpts){
                                         if(editor.editor.items.items){
                                             editor.editor.items.items.every(function(col){
-                                                if(context.record.data.id < 20)
-                                                    if(col.column.field.name === 'faq_tc_question')
-                                                        col.disable();
+                                                console.log(col.column.field.name);
+
+                                                //
+                                                if(col.column.field.name === 'faq_tc_question' && context.record.data.id < 40){
+                                                    col.enable();
+                                                    return true;
+                                                }
+
+
+                                                //
+                                                if(col.column.field.name === 'faq_tc_answer' && context.record.data.id < 100 && context.record.data.id > 40){
+                                                    col.enable();
+                                                    return true;
+                                                }
+
+
+                                                //
+                                                if(context.record.data.id === 35){
+                                                    col.enable();
+                                                    return true;
+                                                }
+
+
+                                                col.disable();
                                                 return true;
                                             })
+
+
                                         }
                                         return true;
                                     }
