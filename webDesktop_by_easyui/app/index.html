@@ -22,7 +22,7 @@
         <div data-options="region:'east',split:true" title="East" style="width:100px;">
             Hello East
         </div>
-        <div data-options="region:'center', footer: '#center-footer'" style="display: flex; flex-direction: row;">
+        <div center data-options="region:'center', footer: '#center-footer'" style="display: flex; flex-direction: row;">
             Hello World
         </div>
         <div id="center-footer">
@@ -47,10 +47,10 @@
     
     <!-- EasyUI 可搭配 Shadow Dom 來運作 -->
     <!-- Case-1 -->
-    <link rel="import" href="dialog.html" />
+    <link id="dialog" rel="import" href="dialog.html" />
 
     <!-- Case-2 -->
-    <template>
+    <template id="window">
         <div id="w"
             class="easyui-window"
             title="Basic Window"
@@ -100,16 +100,31 @@
         </div>
     </template>
 
+    <!-- Case-3 -->
+    <link id="search" rel="import" href="search.html" />
+
     <!-- Scripts -->
     <script>
+
+    
         // Get UI From ShadowDOM - Dailog
-        document.body.appendChild(document.querySelector('link[rel=import]').import.querySelector('.easyui-dialog').cloneNode(true));
+        document.body.appendChild(document.querySelector('link[rel=import]#dialog').import.querySelector('.easyui-dialog').cloneNode(true));
+
 
         // Get UI From ShadowDOM - GridWindow
         document.body.appendChild($('template')[0].content.querySelector('#w').cloneNode(true));
 
+        //
+        $('div[center]').append(document.querySelector('link[rel=import]#search').import.querySelector('.easyui-searchbox').cloneNode(true));
+
+        var doSearch = function(name){
+            console.log(name);
+        };
+
+
         /*
-            - 或是在 EasyUI 內定好 Script Interface 在外部在定義 Function Action.
+            - 或是在 EasyUI 內定好 Script Interface 在外部在定義 Function Action By Override.
+            - Add functionally Search Feature to easyui-datagrid: http://www.jeasyui.com/tutorial/datagrid/datagrid24.php
         */
     </script>
 </body>
