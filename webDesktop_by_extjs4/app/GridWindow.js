@@ -94,7 +94,15 @@ Ext.define('MyDesktop.GridWindow', {
                 tbar:[{
                     text:'Add Something',
                     tooltip:'Add a new row',
-                    iconCls:'add'
+                    iconCls:'add',
+                    handler: function(e){
+
+
+                        //
+                        this.up('#grid-win').down('grid').getSelectionModel().getSelection().every(function(row){
+                            console.log(row);
+                        });
+                    }
                 }, '-', {
                     text:'Options',
                     tooltip:'Modify options',
