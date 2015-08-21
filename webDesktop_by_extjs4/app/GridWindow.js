@@ -9,6 +9,8 @@ Ext.define('MyDesktop.GridWindow', {
     extend: 'Ext.ux.desktop.Module',
 
     requires: [
+        'plugins.myWriter',
+        'plugins.myRestProxy',
         'Ext.data.ArrayStore',
         'Ext.util.Format',
         'Ext.grid.Panel',
@@ -52,11 +54,24 @@ Ext.define('MyDesktop.GridWindow', {
                             ],
                             autoLoad: true,
                             proxy: {
-                                type: 'ajax',
-                                url: '/api/ssd/faq/?extraColumn=1&suspend=skip&audit_name=Faq+Query&limit=10&offset=0',
+                                // http://docs.sencha.com/extjs/4.1.2/#!/api/Ext.data.proxy.Rest
+                                type: 'myRest',
+                                // 如果這邊設定的網址包含 QueryString 將會讓 Restful URL 錯誤
+                                url: '/api/ssd/faq/',
                                 reader: {
                                     type: 'json',
                                     root: 'objects'
+                                },
+                                writer: {
+                                    type: 'myWriter'
+                                },
+                                // http://docs.sencha.com/extjs/4.1.2/#!/api/Ext.data.proxy.Rest-cfg-extraParams
+                                extraParams: {
+                                    extraColumn: 1,
+                                    suspend: 'skip',
+                                    audit_name: 'Faq Query',
+                                    limit: 10,
+                                    offset: 0
                                 }
                             }
                             // data: MyDesktop.GridWindow.getDummyData()
@@ -74,7 +89,11 @@ Ext.define('MyDesktop.GridWindow', {
                                 flex: 1,
                                 sortable: true,
                                 // renderer: Ext.util.Format.usMoney,
-                                dataIndex: 'faq_tc_question'
+                                dataIndex: 'faq_tc_question',
+                                editor: {
+                                    xtype:'textfield',
+                                    allowBlank:false
+                                }
                             },
                             {
                                 text: "Faq Answer",
@@ -88,7 +107,13 @@ Ext.define('MyDesktop.GridWindow', {
                             //     sortable: true,
                             //     dataIndex: 'pctChange'
                             // }
-                        ]
+                        ],
+                        plugins: [
+                            {
+                                ptype: 'cellediting',
+                                clicksToEdit: 1
+                            }
+                        ],
                     }
                 ],
                 tbar:[{
@@ -112,6 +137,13 @@ Ext.define('MyDesktop.GridWindow', {
                     text:'Remove Something',
                     tooltip:'Remove the selected item',
                     iconCls:'remove'
+                },'-',{
+                    text:'Save Something',
+                    tooltip:'Save the selected item',
+                    iconCls:'icon-save',
+                    handler: function(e){
+                        e.up('#grid-win').down('grid').store.sync();
+                    }
                 }]
             });
         }
