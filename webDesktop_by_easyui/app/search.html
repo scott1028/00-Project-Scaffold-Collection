@@ -1,7 +1,9 @@
-<input class="easyui-searchbox" data-options="prompt:'Please Input Value',menu:'#mm',searcher:doSearch" style="width:300px" name="faq_id"></input>
-<div id="mm">
-    <div data-options="name:'all',iconCls:'icon-ok'">All News</div>
-    <div data-options="name:'sports'">Sports News</div>
+<div style="margin: 20px;">
+    <input class="easyui-searchbox" data-options="prompt:'Please Input Value',menu:'#mm',searcher:doSearch" style="width:300px" name="faq_id"></input>
+    <div id="mm" class="easyui-menu">
+        <div data-options="name:'all',iconCls:'icon-ok'">All News</div>
+        <div data-options="name:'sports'">Sports News</div>
+    </div>
 </div>
 <script>
     var doSearch = function(value, name){
