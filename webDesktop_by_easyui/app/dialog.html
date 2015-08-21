@@ -1,0 +1,11 @@
+<div
+    class="easyui-dialog"
+    style="width:400px;height:200px"
+    data-options="title:'My Dialog',iconCls:'icon-ok',onOpen:function(){}">
+    <div id="cc" class="easyui-calendar" style="width:180px;height:180px;" data-options="fit:true,onSelect:selectDateTime"></div>
+</div>
+<script>
+    var selectDateTime = function(date){
+        alert(date.getFullYear()+":"+(date.getMonth()+1)+":"+date.getDate());
+    }
+</script>
