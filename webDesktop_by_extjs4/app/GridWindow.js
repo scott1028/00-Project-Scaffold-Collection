@@ -92,7 +92,7 @@ Ext.define('MyDesktop.GridWindow', {
                                 dataIndex: 'faq_tc_question',
                                 editor: {
                                     xtype:'textfield',
-                                    allowBlank:false
+                                    allowBlank: false
                                 }
                             },
                             {
@@ -110,8 +110,13 @@ Ext.define('MyDesktop.GridWindow', {
                         ],
                         plugins: [
                             {
-                                ptype: 'cellediting',
-                                clicksToEdit: 1
+                                ptype: 'rowediting',
+                                clicksToEdit: 1,
+                                listeners: {
+                                    edit: function(e, item, self){
+                                        item.record.save();
+                                    }
+                                }
                             }
                         ],
                     }

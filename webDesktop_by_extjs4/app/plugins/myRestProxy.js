@@ -148,7 +148,7 @@ Ext.define('plugins.myRestProxy', {
             url       = me.getUrl(request),
             id        = record ? record.getId() : operation.id;
         
-            debugger;
+            // debugger;
 
         if (me.appendId && id) {
             if (!url.match(/\/$/)) {

@@ -33,7 +33,7 @@ Ext.define('plugins.myWriter', {
     //inherit docs
     writeRecords: function(request, data) {
 
-        debugger;
+        // debugger;
 
         var root = this.root;
         
