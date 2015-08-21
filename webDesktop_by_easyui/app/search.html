@@ -1,10 +1,10 @@
-<input class="easyui-searchbox" data-options="prompt:'Please Input Value',menu:'#mm',searcher:doSearch" style="width:300px"></input>
+<input class="easyui-searchbox" data-options="prompt:'Please Input Value',menu:'#mm',searcher:doSearch" style="width:300px" name="faq_id"></input>
 <div id="mm">
     <div data-options="name:'all',iconCls:'icon-ok'">All News</div>
     <div data-options="name:'sports'">Sports News</div>
 </div>
 <script>
-    var doSearch = function(value,name){
+    var doSearch = function(value, name){
         throw new Error('No Implement');
         // alert('You input: ' + value+'('+name+')');
     }

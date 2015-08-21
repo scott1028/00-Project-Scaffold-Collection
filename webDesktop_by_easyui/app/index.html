@@ -106,7 +106,7 @@
     <!-- Scripts -->
     <script>
 
-    
+
         // Get UI From ShadowDOM - Dailog
         document.body.appendChild(document.querySelector('link[rel=import]#dialog').import.querySelector('.easyui-dialog').cloneNode(true));
 
@@ -114,11 +114,16 @@
         // Get UI From ShadowDOM - GridWindow
         document.body.appendChild($('template')[0].content.querySelector('#w').cloneNode(true));
 
+
         //
         $('div[center]').append(document.querySelector('link[rel=import]#search').import.querySelector('.easyui-searchbox').cloneNode(true));
 
-        var doSearch = function(name){
-            console.log(name);
+
+        //
+        var doSearch = function(value, name){
+            $('.easyui-datagrid').datagrid('load',{
+                faq_id: value
+            });
         };
 
 
