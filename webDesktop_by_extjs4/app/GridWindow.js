@@ -98,7 +98,8 @@ Ext.define('MyDesktop.GridWindow', {
                     handler: function(e){
 
 
-                        //
+                        // ref: http://stackoverflow.com/questions/14165617/get-selected-row-column-value-extjs-grid
+                        // ref: http://stackoverflow.com/questions/9068842/how-to-load-a-create-and-load-a-new-record-into-a-form-in-extjs-4-0
                         this.up('#grid-win').down('grid').getSelectionModel().getSelection().every(function(row){
                             console.log(row);
                         });
