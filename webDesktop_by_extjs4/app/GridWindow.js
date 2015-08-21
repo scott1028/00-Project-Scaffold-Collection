@@ -140,7 +140,7 @@ Ext.define('MyDesktop.GridWindow', {
                 },'-',{
                     text:'Save Something',
                     tooltip:'Save the selected item',
-                    iconCls:'icon-save',
+                    iconCls:'add',
                     handler: function(e){
                         e.up('#grid-win').down('grid').store.sync();
                     }
