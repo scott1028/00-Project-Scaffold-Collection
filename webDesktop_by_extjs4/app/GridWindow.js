@@ -145,34 +145,7 @@ Ext.define('MyDesktop.GridWindow', {
                                         }
                                         return true;
                                     }
-                                },
-                                // startEdit: function(record, columnHeader) {
-
-                                //     // 如果資料ID小於 20 則 不給編輯
-                                //     if(record.data.id <= 20)
-                                //         return false;
-
-
-                                //     //
-                                //     var me = this,
-                                //         editor = me.getEditor(),
-                                //         context;
-
-                                //     if (editor.beforeEdit() !== false) {
-                                //         context = me.callParent(arguments);
-                                //         if (context) {
-                                //             me.context = context;
-
-                                //             // If editing one side of a lockable grid, cancel any edit on the other side.
-                                //             if (me.lockingPartner) {
-                                //                 me.lockingPartner.cancelEdit();
-                                //             }
-                                //             editor.startEdit(context.record, context.column, context);
-                                //             return true;
-                                //         }
-                                //     }
-                                //     return false;
-                                // }
+                                }
                             }
                         ],
                     }
