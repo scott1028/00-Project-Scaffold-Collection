@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en" ng-app="ngAppDemo">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>EasyUI - Desktop Sample App</title>
+    <!-- bower:css -->
+    <link rel="stylesheet" type="text/css" href="../bower_components/jquery.easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../bower_components/jquery.easyui/themes/icon.css">
+    <!-- <link rel="stylesheet" type="text/css" href="../bower_components/jquery-easyui/themes/color.css"> -->
+    <!-- endbower -->
+    <!-- bower:js -->
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/jquery.easyui/jquery.easyui.min.js"></script>
+    <!-- endbower -->
+</head>
+<body>
+    <!-- Viewport -->
+    <div class="easyui-layout" style="width:700px;height:350px;" data-options="fit:true" ng-controller="ngAppDemoController">
+        <div data-options="region:'west',split:true" title="West" style="width:100px;">
+            Hello West
+        </div>
+        <div data-options="region:'east',split:true" title="East" style="width:100px;">
+            Hello East
+        </div>
+        <div data-options="region:'center', footer: '#center-footer'" style="display: flex; flex-direction: row;">
+            Hello World
+        </div>
+        <div id="center-footer">
+            <a href="javascript:void(0)" id="mb" class="easyui-menubutton" data-options="menu:'#mm',iconCls:'icon-edit'">Start</a>
+            <div id="mm" style="width:150px;">
+                <div data-options="iconCls:'icon-undo'">Undo</div>
+                <div data-options="iconCls:'icon-redo'">Redo</div>
+                <div class="menu-sep"></div>
+                <div>Cut</div>
+                <div>Copy</div>
+                <div>Paste</div>
+                <div class="menu-sep"></div>
+                <div data-options="iconCls:'icon-remove'">Delete</div>
+                <div>Select All</div>
+            </div>
+            <a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" ng-show="ui_window.open">My Computer</a>
+        </div>
+    </div>
+
+
+    <!-- Component -->
+    <div
+        class="easyui-dialog"
+        style="width:400px;height:200px"
+        data-options="title:'My Dialog',iconCls:'icon-ok',onOpen:function(){}">
+        <div id="cc" class="easyui-calendar" style="width:180px;height:180px;" data-options="fit:true,onSelect:selectDateTime"></div>
+    </div>
+
+    <div id="w" class="easyui-window" title="Basic Window" data-options="iconCls:'icon-save', closed: true" style="width:700px;height:400px;">
+        <table class="easyui-datagrid" style="height:auto"
+                data-options="
+                    singleSelect:true,
+                    collapsible:true,
+                    url:'http://127.0.0.1:8080/api/ssd/faq/?extraColumn=1&suspend=skip&audit_name=Faq+Query&limit=10&offset=0',
+                    method:'get',
+                    fit:true,
+                    loadFilter: gridFilter">
+            <thead>
+                <tr>
+                    <th data-options="field:'id',width:80,sortable:true">Item ID</th>
+                    <th data-options="field:'faq_answer',width:100">Faq Answer</th>
+                    <th data-options="field:'faq_e_question',width:80,align:'right'">Faq E Question</th>
+                    <th data-options="field:'faq_order',width:80,align:'right'">Faq Order</th>
+                    <th data-options="field:'faq_type1',width:60">Faq Type1</th>
+                    <th data-options="field:'faq_type2',width:60,align:'center'">Faq Type2</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+
+    <!-- Scripts -->
+    <script>
+        var selectDateTime = function(date){
+            alert(date.getFullYear()+":"+(date.getMonth()+1)+":"+date.getDate());
+        }
+
+        var gridFilter = function(data){
+            
+            //
+            console.log(data);
+            //
+            var json = {
+                total: data.meta.total_count,
+                rows: data.objects
+            }
+            return json
+        };
+    </script>
+</body>
+</html>
