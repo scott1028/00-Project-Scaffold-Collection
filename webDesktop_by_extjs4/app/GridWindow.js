@@ -115,7 +115,8 @@ Ext.define('MyDesktop.GridWindow', {
                                 text: "Faq Answer",
                                 flex: 1,
                                 sortable: true,
-                                dataIndex: 'faq_tc_answer'
+                                dataIndex: 'faq_tc_answer',
+                                editor: true
                             },
                             // {
                             //     text: "% Change",
@@ -131,6 +132,18 @@ Ext.define('MyDesktop.GridWindow', {
                                 listeners: {
                                     edit: function(e, item, self){
                                         item.record.save();
+                                    },
+                                    // 條件編輯超難改
+                                    beforeedit: function(editor, context, eOpts){
+                                        if(editor.editor.items.items){
+                                            editor.editor.items.items.every(function(col){
+                                                if(context.record.data.id < 20)
+                                                    if(col.column.field.name === 'faq_tc_question')
+                                                        col.disable();
+                                                return true;
+                                            })
+                                        }
+                                        return true;
                                     }
                                 },
                                 // startEdit: function(record, columnHeader) {
