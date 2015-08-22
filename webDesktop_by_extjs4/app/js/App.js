@@ -17,8 +17,11 @@ Ext.define('Ext.ux.desktop.App', {
     // requires 會在 Class 準備 Instances "前" 全數動態加載好
     requires: [
         'Ext.container.Viewport',            // 不這樣寫, 你就要寫很巢狀的 Ext.require('A',function(){ Ext.require('B',function(){ .... }) }); 不易閱讀！
-        'Ext.ux.desktop.Desktop'             // 之後再 constructor->init 內將調用, 這個 Class 定義在 Desktop.js 內。
+        'Ext.ux.desktop.Desktop',            // 之後再 constructor->init 內將調用, 這個 Class 定義在 Desktop.js 內。
                                              // 在 desktop.html 內 'Ext.ux.desktop': 'js' 有 path 參考轉向。
+
+        // Add My Additional UI
+        'Ext.ux.desktop.LoginForm'           // Login Page
     ],
 
     isReady: false,

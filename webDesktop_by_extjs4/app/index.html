@@ -21,15 +21,17 @@
         // setPath 的一切小技巧
         Ext.Loader.setPath({
             'Ext.ux.desktop': 'js',         // [字串:字串]：單純的文字替換, 就是後面的 Ext.require 內的文字替換
-            MyDesktop: ''                   // [變量:字串]：代表建立一個 MyDesktop 的路徑變量指向 '' 代表當前目錄, 可以在後面的 Ext.require 內使用
+            MyDesktop: '',                   // [變量:字串]：代表建立一個 MyDesktop 的路徑變量指向 '' 代表當前目錄, 可以在後面的 Ext.require 內使用
         });
 
         Ext.require('MyDesktop.App');       // 使用先前定義的路徑變量
         // Ext.require('App');              // 當然你也可以維持這樣寫
 
         var myDesktopApp;
+        var myLogin;
         Ext.onReady(function () {
-            myDesktopApp = new MyDesktop.App();
+            // myDesktopApp = new MyDesktop.App();
+            myLogin = new Ext.ux.desktop.LoginForm();
         });
     </script>
     <!-- </x-compile> -->
