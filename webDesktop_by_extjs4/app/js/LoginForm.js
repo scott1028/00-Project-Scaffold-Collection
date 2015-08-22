@@ -1,6 +1,7 @@
 Ext.define('Ext.ux.desktop.LoginForm', {
     extend: 'Ext.window.Window',
     xtype: 'login',
+    title: 'Login System',
     autoShow: true,
     items: [{
         xtype: 'form',
